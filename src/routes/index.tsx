@@ -1,24 +1,154 @@
 import { createFileRoute } from "@tanstack/react-router";
+import hero from "@/assets/hero.jpg";
+import studio from "@/assets/studio.jpg";
+import noiva from "@/assets/noiva.jpg";
+import { CTA, LinkCTA } from "@/components/site";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Studio Ingrid Silva — Extensão de Cílios e Sobrancelhas em São Paulo" },
+      { name: "description", content: "Extensão de cílios e Brow Lamination em São Paulo/SP, com atendimento personalizado e acolhedor. Agende pelo WhatsApp." },
+      { property: "og:title", content: "Studio Ingrid Silva — Cílios e Sobrancelhas" },
+      { property: "og:description", content: "Beleza personalizada para realçar o seu olhar. São Paulo/SP." },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+const highlights = [
+  { name: "Extensão Fio a Fio", text: "Naturalidade e definição para a rotina." },
+  { name: "Volume Russo", text: "Densidade macia para um olhar marcante." },
+  { name: "Brow Lamination", text: "Sobrancelhas alinhadas e com aspecto mais cheio." },
+];
+
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-2 md:py-24">
+        <div>
+          <p className="eyebrow">Cílios & Sobrancelhas · São Paulo</p>
+          <h1 className="mt-5 text-5xl leading-[1.05] md:text-7xl">
+            O seu olhar, <em className="text-accent">com a sua essência.</em>
+          </h1>
+          <p className="mt-6 max-w-md text-lg text-muted-foreground">
+            No Studio Ingrid Silva, cada atendimento é pensado para realçar a sua beleza, com cuidado nos detalhes e respeito ao seu estilo.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <CTA>Agende agora pelo WhatsApp</CTA>
+            <LinkCTA to="/servicos">Conheça nossos serviços</LinkCTA>
+          </div>
+        </div>
+        <img src={hero} alt="Olhar com extensão de cílios de efeito natural" width={1280} height={1600} className="aspect-[4/5] w-full object-cover" />
+      </section>
+
+      <section className="bg-muted py-20">
+        <div className="mx-auto max-w-3xl px-5 text-center">
+          <span className="gold-rule mx-auto" />
+          <h2 className="mt-6 text-4xl md:text-5xl">Um espaço dedicado ao seu momento</h2>
+          <p className="mt-6 text-muted-foreground">
+            Somos um studio especializado em extensão de cílios e cuidados com sobrancelhas. Aqui, você é ouvida com atenção para encontrarmos juntas o estilo que combina com a sua personalidade e a sua rotina.
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-24">
+        <div className="text-center">
+          <p className="eyebrow">Mais procurados</p>
+          <h2 className="mt-4 text-4xl md:text-5xl">Serviços em destaque</h2>
+        </div>
+        <div className="mt-14 grid gap-px bg-border md:grid-cols-3">
+          {highlights.map((h) => (
+            <div key={h.name} className="bg-background p-10">
+              <h3 className="text-2xl">{h.name}</h3>
+              <p className="mt-3 text-sm text-muted-foreground">{h.text}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 text-center"><LinkCTA to="/servicos">Ver todos os serviços</LinkCTA></div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
+        <img src={studio} alt="Detalhes do atendimento no studio" width={1280} height={960} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+        <div>
+          <p className="eyebrow">Nosso Estilo</p>
+          <h2 className="mt-4 text-4xl md:text-5xl">Beleza personalizada, sem excessos</h2>
+          <p className="mt-6 text-muted-foreground">
+            Acreditamos que cada olhar é único. Por isso, o desenho, a curvatura e o volume são escolhidos a partir de uma conversa sobre o que você deseja e do que valoriza os seus traços.
+          </p>
+          <p className="mt-4 text-muted-foreground">
+            Acompanhamos as tendências com um olhar atento à elegância e ao conforto, para que você se sinta bem consigo mesma todos os dias.
+          </p>
+          <div className="mt-8"><LinkCTA to="/sobre">Conheça nosso estilo</LinkCTA></div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-24">
+        <div className="text-center">
+          <p className="eyebrow">Transformações</p>
+          <h2 className="mt-4 text-4xl md:text-5xl">Descubra sua próxima transformação</h2>
+          <p className="mx-auto mt-4 max-w-lg text-muted-foreground">Resultados reais de clientes, compartilhados com autorização.</p>
+        </div>
+        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="flex aspect-square items-center justify-center border border-dashed border-border bg-muted text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              Foto autorizada
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 text-center"><CTA href="https://instagram.com/studioingridsilvaoficial" variant="outline">Veja mais no Instagram</CTA></div>
+      </section>
+
+      <section className="bg-muted py-24">
+        <div className="mx-auto max-w-3xl px-5 text-center">
+          <p className="eyebrow">Depoimentos das Clientes</p>
+          <h2 className="mt-4 text-4xl md:text-5xl">Quem já viveu a experiência</h2>
+          <p className="mt-6 text-muted-foreground">Em breve, compartilharemos aqui avaliações reais de nossas clientes.</p>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-24 md:grid-cols-2">
+        <div className="md:order-2">
+          <img src={noiva} alt="Noiva com cílios e maquiagem delicados" width={1280} height={960} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+        </div>
+        <div>
+          <p className="eyebrow">Noivas & Ocasiões especiais</p>
+          <h2 className="mt-4 text-4xl md:text-5xl">Para o dia em que cada detalhe importa</h2>
+          <p className="mt-6 text-muted-foreground">
+            Preparamos experiências pensadas para noivas e momentos especiais, com planejamento antecipado para que o seu olhar esteja do jeito que você sonhou.
+          </p>
+          <div className="mt-8"><CTA>Consulte nossos pacotes para noivas</CTA></div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5">
+        <div className="text-center">
+          <p className="eyebrow">Agenda</p>
+          <h2 className="mt-4 text-4xl md:text-5xl">Como marcar o seu horário</h2>
+        </div>
+        <ol className="mt-12 grid gap-8 md:grid-cols-3">
+          {[
+            ["Escolha o serviço", "Conheça as opções e veja qual combina com você."],
+            ["Fale com o Studio", "Envie uma mensagem pelo WhatsApp com o serviço desejado."],
+            ["Confirme o horário", "Combinamos juntas o melhor dia e horário disponível."],
+          ].map(([t, d], i) => (
+            <li key={t} className="border-t border-accent pt-6">
+              <span className="font-display text-4xl text-accent">0{i + 1}</span>
+              <h3 className="mt-2 text-2xl">{t}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{d}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="mx-auto mt-24 max-w-3xl px-5 text-center">
+        <h2 className="text-4xl md:text-6xl">Quero transformar <em className="text-accent">meu visual</em></h2>
+        <p className="mt-6 text-muted-foreground">Estamos prontas para receber você com carinho e atenção.</p>
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <CTA>Agende sua experiência agora</CTA>
+          <LinkCTA to="/contato">Fale com o Studio</LinkCTA>
+        </div>
+      </section>
+    </>
   );
 }
