@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { externalClick, PHONE, WHATSAPP } from "@/components/site";
@@ -60,7 +60,7 @@ describe("WhatsApp booking buttons", () => {
     expect(screen.queryByText(PHONE)).toBeNull();
 
     const { event } = clickOn(WHATSAPP);
-    externalClick(event, true);
+    act(() => externalClick(event, true));
 
     expect(screen.getByText(PHONE)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /copiar mensagem/i })).toBeInTheDocument();
