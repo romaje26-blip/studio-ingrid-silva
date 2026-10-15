@@ -203,8 +203,22 @@ function Index() {
         <div className="mx-auto max-w-3xl px-5 text-center">
           <p className="eyebrow">Depoimentos das Clientes</p>
           <h2 className="mt-4 text-4xl md:text-5xl">Quem já viveu a experiência</h2>
-          <p className="mt-6 text-muted-foreground">Em breve, compartilharemos aqui avaliações reais de nossas clientes.</p>
         </div>
+        <div className="mx-auto mt-12 grid max-w-6xl gap-px bg-border px-5 md:grid-cols-3">
+          {depoimentos.map((d) => (
+            <figure key={d.nome} className="flex flex-col bg-background p-10 text-center">
+              <Stars />
+              <blockquote className="mt-6 flex-1 text-muted-foreground">“{d.texto}”</blockquote>
+              <figcaption className="mt-8">
+                <p className="font-display text-lg">{d.nome}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">{d.servico}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="mx-auto mt-8 max-w-3xl px-5 text-center text-xs text-muted-foreground">
+          Depoimentos de exemplo — em breve, avaliações reais das nossas clientes.
+        </p>
       </section>
 
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-24 md:grid-cols-2">
