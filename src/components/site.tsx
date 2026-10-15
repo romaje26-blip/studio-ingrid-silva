@@ -1,14 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import type { MouseEvent, ReactNode } from "react";
 
-export const WHATSAPP = "https://wa.me/5511948190515?text=" + encodeURIComponent("Olá! Gostaria de agendar um horário no Studio Ingrid Silva.");
+import { requestWhatsAppFallback } from "./whatsapp-fallback";
+
+export const PHONE = "(11) 94819-0515";
+export const WHATSAPP_MESSAGE = "Olá! Gostaria de agendar um horário no Studio Ingrid Silva.";
+export const WHATSAPP = "https://wa.me/5511948190515?text=" + encodeURIComponent(WHATSAPP_MESSAGE);
 export const INSTAGRAM = "https://instagram.com/studioingridsilvaoficial";
 export const EMAIL = "Ingridsilva12189@yahoo.com";
 
 /**
- * Opens WhatsApp/Instagram in a new tab. When the browser blocks that tab — a
- * sandboxed preview, an embedded frame or strict popup settings — the current
- * tab navigates instead, so the chat always opens.
+ * Opens WhatsApp/Instagram in a new tab. If the browser blocks that tab, the
+ * current tab goes to the chat — unless the page itself sits inside a frame (a
+ * preview pane), where WhatsApp refuses to render, so the number and a ready
+ * message are offered instead of a dead click.
  */
 export function externalClick(e: MouseEvent<HTMLAnchorElement>) {
   const href = e.currentTarget.href;
@@ -22,6 +27,10 @@ export function externalClick(e: MouseEvent<HTMLAnchorElement>) {
     }
   } catch {
     // the embedding frame refused the new tab
+  }
+  if (window.self !== window.top) {
+    requestWhatsAppFallback({ href, phone: PHONE, message: WHATSAPP_MESSAGE });
+    return;
   }
   window.location.href = href;
 }

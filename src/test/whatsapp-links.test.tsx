@@ -1,13 +1,15 @@
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
-import { externalClick, WHATSAPP } from "@/components/site";
+import { externalClick, PHONE, WHATSAPP } from "@/components/site";
+import { WhatsAppFallback } from "@/components/whatsapp-fallback";
 
 // A click event shaped like the one React hands an anchor's onClick handler.
 function clickOn(href: string) {
   const anchor = document.createElement("a");
   anchor.href = href;
   const preventDefault = vi.fn();
-  return { event: { currentTarget: anchor, preventDefault } as never, preventDefault, anchor };
+  return { event: { currentTarget: anchor, preventDefault } as never, preventDefault };
 }
 
 describe("WhatsApp booking buttons", () => {
@@ -47,6 +49,27 @@ describe("WhatsApp booking buttons", () => {
 
     openSpy.mockRestore();
     locationGetter.mockRestore();
+  });
+
+  it("offers the number and a ready message when embedded and the new tab is blocked", () => {
+    const openSpy = vi.spyOn(window, "open").mockReturnValue(null);
+    const topDescriptor = Object.getOwnPropertyDescriptor(window, "top");
+    Object.defineProperty(window, "top", { value: {}, configurable: true, writable: true });
+
+    try {
+      render(<WhatsAppFallback />);
+      expect(screen.queryByText(PHONE)).toBeNull();
+
+      const { event } = clickOn(WHATSAPP);
+      externalClick(event);
+
+      expect(screen.getByText(PHONE)).toBeInTheDocument();
+      expect(screen.getByRole("button", { name: /copiar mensagem/i })).toBeInTheDocument();
+      expect(screen.getByRole("link", { name: /tentar abrir/i })).toHaveAttribute("href", WHATSAPP);
+    } finally {
+      if (topDescriptor) Object.defineProperty(window, "top", topDescriptor);
+      openSpy.mockRestore();
+    }
   });
 
   it("leaves mailto links to the browser", () => {

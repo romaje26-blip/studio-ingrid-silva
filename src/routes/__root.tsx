@@ -11,6 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import { Header, Footer, WhatsFloat } from "../components/site";
+import { WhatsAppFallback } from "../components/whatsapp-fallback";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -127,6 +128,7 @@ function RootComponent() {
       <main><Outlet /></main>
       <Footer />
       <WhatsFloat />
+      <WhatsAppFallback />
     </QueryClientProvider>
   );
 }
