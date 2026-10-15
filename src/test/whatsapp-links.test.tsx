@@ -13,6 +13,8 @@ function clickOn(href: string) {
 }
 
 describe("WhatsApp booking buttons", () => {
+  afterEach(() => vi.restoreAllMocks());
+
   it("points at the studio's WhatsApp number", () => {
     expect(WHATSAPP).toContain("wa.me/5511948190515");
   });
