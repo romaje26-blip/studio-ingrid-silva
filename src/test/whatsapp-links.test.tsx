@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { externalClick, PHONE, WHATSAPP } from "@/components/site";
 import { WhatsAppFallback } from "@/components/whatsapp-fallback";

@@ -28,7 +28,7 @@ export function externalClick(e: MouseEvent<HTMLAnchorElement>, embedded = windo
   } catch {
     // the embedding frame refused the new tab
   }
-  if (window.self !== window.top) {
+  if (embedded) {
     requestWhatsAppFallback({ href, phone: PHONE, message: WHATSAPP_MESSAGE });
     return;
   }
