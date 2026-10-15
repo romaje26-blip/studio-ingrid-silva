@@ -63,10 +63,10 @@ function Index() {
             loading="lazy"
             className="h-[48vh] max-h-[560px] min-h-[300px] w-full object-cover object-[center_28%] md:h-[56vh]"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/50 via-primary/10 to-transparent" />
-          <div className="absolute bottom-6 left-5 flex items-center gap-4 md:bottom-9 md:left-10">
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/20 to-transparent" />
+          <div className="absolute bottom-5 left-4 flex items-center gap-3 bg-primary/30 px-4 py-2.5 backdrop-blur-[3px] md:bottom-9 md:left-10 md:gap-4 md:bg-transparent md:px-0 md:py-0 md:backdrop-blur-none">
             <span className="gold-rule" />
-            <p className="font-display text-3xl leading-none text-primary-foreground md:text-4xl">
+            <p className="font-display text-2xl leading-none text-primary-foreground md:text-4xl">
               Studio <span className="italic">Ingrid Silva</span>
             </p>
           </div>
