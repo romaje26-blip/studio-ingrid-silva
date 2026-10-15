@@ -10,3 +10,5 @@
 - [ ] Política de Privacidade — precisa de revisão antes de publicar o site
 
 - [x] Seção "Nossa Equipe" abaixo de "Como marcar o seu horário", com foto real da Ingrid, bio de 6 anos e certificações
+
+- [x] Faixa de destaque da Início: nova foto real da Ingrid em atendimento, faixa mais alta e recorte ajustado
