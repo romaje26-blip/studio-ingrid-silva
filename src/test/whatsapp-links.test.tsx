@@ -53,23 +53,18 @@ describe("WhatsApp booking buttons", () => {
 
   it("offers the number and a ready message when embedded and the new tab is blocked", () => {
     const openSpy = vi.spyOn(window, "open").mockReturnValue(null);
-    const topDescriptor = Object.getOwnPropertyDescriptor(window, "top");
-    Object.defineProperty(window, "top", { value: {}, configurable: true, writable: true });
 
-    try {
-      render(<WhatsAppFallback />);
-      expect(screen.queryByText(PHONE)).toBeNull();
+    render(<WhatsAppFallback />);
+    expect(screen.queryByText(PHONE)).toBeNull();
 
-      const { event } = clickOn(WHATSAPP);
-      externalClick(event);
+    const { event } = clickOn(WHATSAPP);
+    externalClick(event, true);
 
-      expect(screen.getByText(PHONE)).toBeInTheDocument();
-      expect(screen.getByRole("button", { name: /copiar mensagem/i })).toBeInTheDocument();
-      expect(screen.getByRole("link", { name: /tentar abrir/i })).toHaveAttribute("href", WHATSAPP);
-    } finally {
-      if (topDescriptor) Object.defineProperty(window, "top", topDescriptor);
-      openSpy.mockRestore();
-    }
+    expect(screen.getByText(PHONE)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /copiar mensagem/i })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /tentar abrir/i })).toHaveAttribute("href", WHATSAPP);
+
+    openSpy.mockRestore();
   });
 
   it("leaves mailto links to the browser", () => {

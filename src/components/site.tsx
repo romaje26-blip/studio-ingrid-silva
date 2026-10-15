@@ -15,7 +15,7 @@ export const EMAIL = "Ingridsilva12189@yahoo.com";
  * preview pane), where WhatsApp refuses to render, so the number and a ready
  * message are offered instead of a dead click.
  */
-export function externalClick(e: MouseEvent<HTMLAnchorElement>) {
+export function externalClick(e: MouseEvent<HTMLAnchorElement>, embedded = window.self !== window.top) {
   const href = e.currentTarget.href;
   if (!href || href.startsWith("mailto:")) return;
   e.preventDefault();
