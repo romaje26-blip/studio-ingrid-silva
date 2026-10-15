@@ -6,6 +6,7 @@ import cilios from "@/assets/cilios.jpg.asset.json";
 import fioAFio from "@/assets/fio-a-fio.jpg";
 import volumeMegaLuxo from "@/assets/volume-mega-luxo.jpg";
 import volumeEgipcio from "@/assets/volume-egipcio.jpg";
+import ingridAtendimento from "@/assets/ingrid-atendimento.jpg.asset.json";
 import { CTA, LinkCTA } from "@/components/site";
 
 export const Route = createFileRoute("/")({
@@ -207,6 +208,46 @@ function Index() {
           ))}
         </ol>
       </section>
+
+      <section className="mx-auto mt-24 max-w-6xl px-5 py-4">
+        <div className="grid items-center gap-12 md:grid-cols-2">
+          <figure className="relative overflow-hidden">
+            <img
+              src={ingridAtendimento.url}
+              alt="Ingrid Silva aplicando extensão de cílios em cliente no studio"
+              width={960}
+              height={1280}
+              loading="lazy"
+              className="aspect-[4/5] w-full object-cover object-center"
+            />
+            <figcaption className="absolute bottom-4 left-4 flex items-center gap-3 bg-background/85 px-4 py-2">
+              <span className="gold-rule" />
+              <span className="font-display text-lg leading-none">Ingrid Silva</span>
+            </figcaption>
+          </figure>
+          <div>
+            <p className="eyebrow">Nossa Equipe</p>
+            <h2 className="mt-4 text-4xl md:text-5xl">Ingrid Silva</h2>
+            <p className="mt-6 text-muted-foreground">
+              Há 6 anos atuando com excelência na área de Cílios e Sobrancelhas, Ingrid conduz cada atendimento com técnica, escuta e cuidado nos detalhes — para que o resultado valorize o seu olhar do seu jeito.
+            </p>
+            <h3 className="mt-10 text-2xl">Certificações e Diferenciais Técnicos</h3>
+            <ul className="mt-6 space-y-4">
+              {[
+                "Certificado curso UNIA TE e avançado",
+                "Tendências avançadas",
+              ].map((c) => (
+                <li key={c} className="flex items-start gap-3 border-t border-accent pt-4 text-sm text-muted-foreground">
+                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  <span>{c}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10"><CTA>Agende com a Ingrid</CTA></div>
+          </div>
+        </div>
+      </section>
+
 
       <section className="mx-auto mt-24 max-w-3xl px-5 text-center">
         <h2 className="text-4xl md:text-6xl">Quero transformar <em className="text-accent">meu visual</em></h2>
