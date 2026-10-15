@@ -101,7 +101,7 @@ export function Footer() {
     <footer className="mt-24 bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-3">
         <div>
-          <img src={monograma.url} alt="Studio Ingrid Silva — Lash Designer" className="h-32 w-auto sm:h-36" />
+          <img src={monograma.url} alt="Studio Ingrid Silva — Lash Designer" className="h-32 w-auto sm:h-40" />
           <p className="mt-4 text-sm opacity-75">Extensão de cílios e cuidados com sobrancelhas · São Paulo/SP</p>
         </div>
         <div className="space-y-2 text-sm opacity-90">
