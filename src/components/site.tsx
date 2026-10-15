@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import type { MouseEvent, ReactNode } from "react";
 
 import monograma from "@/assets/monograma-claro.png.asset.json";
+import monogramaIs from "@/assets/monograma-is-escuro.png.asset.json";
 import { requestWhatsAppFallback } from "./whatsapp-fallback";
 
 export const PHONE = "(11) 94819-0515";
@@ -70,9 +71,12 @@ const nav = [
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
-        <Link to="/" className="font-display text-xl leading-none sm:text-2xl">
-          Studio <span className="italic text-accent">Ingrid Silva</span>
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+        <Link to="/" className="flex items-center gap-2.5 sm:gap-3">
+          <img src={monogramaIs.url} alt="" aria-hidden className="h-9 w-auto shrink-0 sm:h-11" />
+          <span className="font-display text-xl leading-none sm:text-2xl">
+            Studio <span className="italic text-accent">Ingrid Silva</span>
+          </span>
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
