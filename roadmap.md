@@ -8,3 +8,5 @@
 - [x] Símbolo "IS" em marrom escuro no cabeçalho, ao lado do nome escrito (nítido no computador e no celular)
 - [ ] Endereço, horários, preços e duração dos serviços — aguardando os dados da Ingrid
 - [ ] Política de Privacidade — precisa de revisão antes de publicar o site
+
+- [x] Seção "Nossa Equipe" abaixo de "Como marcar o seu horário", com foto real da Ingrid, bio de 6 anos e certificações
