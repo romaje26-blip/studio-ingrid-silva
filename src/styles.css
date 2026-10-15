@@ -123,6 +123,9 @@
   height: 1px;
   background: var(--accent);
 }
+@utility caption-shadow {
+  text-shadow: 0 1px 20px color-mix(in oklab, var(--primary) 75%, transparent);
+}
 @layer base {
   body { font-family: var(--font-sans); font-weight: 300; }
   h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; }
