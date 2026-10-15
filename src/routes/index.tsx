@@ -28,6 +28,37 @@ const highlights = [
   { name: "Brow Lamination", text: "Sobrancelhas alinhadas e com aspecto mais cheio." },
 ];
 
+/** Depoimentos provisórios, criados como exemplo — trocar pelos reais das clientes. */
+const depoimentos = [
+  {
+    texto: "Amei o resultado! Meus cílios ficaram leves e naturais, do jeito que eu pedi. O atendimento foi super atento do começo ao fim.",
+    nome: "Mariana S.",
+    servico: "Extensão Fio a Fio",
+  },
+  {
+    texto: "Saí do studio me sentindo outra pessoa. O volume ficou denso, mas confortável — ninguém percebeu que era aplicado.",
+    nome: "Juliana R.",
+    servico: "Volume Russo",
+  },
+  {
+    texto: "Minhas sobrancelhas nunca estiveram tão alinhadas. O cuidado com cada detalhe fez toda a diferença no meu dia a dia.",
+    nome: "Camila T.",
+    servico: "Brow Lamination",
+  },
+];
+
+function Stars() {
+  return (
+    <span className="flex items-center gap-1" aria-label="Avaliação: 5 de 5 estrelas">
+      {[0, 1, 2, 3, 4].map((i) => (
+        <svg key={i} viewBox="0 0 24 24" className="h-4 w-4 fill-accent" aria-hidden>
+          <path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3l-6.1 3.3 1.4-6.8-5.1-4.7 6.9-.8L12 2z" />
+        </svg>
+      ))}
+    </span>
+  );
+}
+
 function Index() {
   return (
     <>
@@ -172,8 +203,22 @@ function Index() {
         <div className="mx-auto max-w-3xl px-5 text-center">
           <p className="eyebrow">Depoimentos das Clientes</p>
           <h2 className="mt-4 text-4xl md:text-5xl">Quem já viveu a experiência</h2>
-          <p className="mt-6 text-muted-foreground">Em breve, compartilharemos aqui avaliações reais de nossas clientes.</p>
         </div>
+        <div className="mx-auto mt-12 grid max-w-6xl gap-px bg-border px-5 md:grid-cols-3">
+          {depoimentos.map((d) => (
+            <figure key={d.nome} className="flex flex-col bg-background p-10 text-center">
+              <Stars />
+              <blockquote className="mt-6 flex-1 text-muted-foreground">“{d.texto}”</blockquote>
+              <figcaption className="mt-8">
+                <p className="font-display text-lg">{d.nome}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-muted-foreground">{d.servico}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="mx-auto mt-8 max-w-3xl px-5 text-center text-xs text-muted-foreground">
+          Depoimentos de exemplo — em breve, avaliações reais das nossas clientes.
+        </p>
       </section>
 
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-24 md:grid-cols-2">
