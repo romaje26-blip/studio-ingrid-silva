@@ -66,7 +66,7 @@ function Index() {
             width={960}
             height={1280}
             loading="lazy"
-            className="h-[62vh] max-h-[760px] min-h-[360px] w-full object-cover object-[center_35%] md:h-[70vh]"
+            className="h-[62vh] max-h-[760px] min-h-[360px] w-full object-cover object-[center_68%] md:h-[70vh]"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/25 to-transparent" />
           <div className="absolute bottom-5 left-4 flex items-center gap-3 md:bottom-9 md:left-10 md:gap-4">
