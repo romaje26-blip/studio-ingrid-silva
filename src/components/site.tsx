@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { MouseEvent, ReactNode } from "react";
 
+import monograma from "@/assets/monograma-claro.png.asset.json";
 import { requestWhatsAppFallback } from "./whatsapp-fallback";
 
 export const PHONE = "(11) 94819-0515";
@@ -100,8 +101,8 @@ export function Footer() {
     <footer className="mt-24 bg-primary text-primary-foreground">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-3">
         <div>
-          <p className="font-display text-2xl">Studio <span className="italic">Ingrid Silva</span></p>
-          <p className="mt-3 text-sm opacity-75">Extensão de cílios e cuidados com sobrancelhas · São Paulo/SP</p>
+          <img src={monograma.url} alt="Studio Ingrid Silva — Lash Designer" className="h-32 w-auto sm:h-36" />
+          <p className="mt-4 text-sm opacity-75">Extensão de cílios e cuidados com sobrancelhas · São Paulo/SP</p>
         </div>
         <div className="space-y-2 text-sm opacity-90">
           <p><a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={externalClick} className="hover:opacity-70">WhatsApp (11) 94819-0515</a></p>
