@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CTA, EMAIL, INSTAGRAM, PageHeader, WHATSAPP } from "@/components/site";
+import { CTA, EMAIL, externalClick, INSTAGRAM, PageHeader, WHATSAPP } from "@/components/site";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
@@ -24,7 +24,7 @@ function Contato() {
       <PageHeader eyebrow="Contato" title={<>Fale com <em className="text-accent">o Studio</em></>} intro="Para solicitar um horário, envie uma mensagem pelo WhatsApp informando o serviço desejado. Responderemos com as opções disponíveis." />
       <section className="mx-auto grid max-w-5xl gap-px bg-border px-5 md:grid-cols-3">
         {items.map(([label, value, href]) => (
-          <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="group bg-background p-10 text-center transition-colors hover:bg-muted">
+          <a key={label} href={href} target="_blank" rel="noopener noreferrer" onClick={externalClick} className="group bg-background p-10 text-center transition-colors hover:bg-muted">
             <p className="eyebrow">{label}</p>
             <p className="mt-4 break-words font-display text-2xl group-hover:text-accent">{value}</p>
           </a>
