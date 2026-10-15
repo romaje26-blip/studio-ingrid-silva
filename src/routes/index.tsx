@@ -3,6 +3,7 @@ import hero from "@/assets/hero.jpg";
 import studio from "@/assets/studio.jpg";
 import noiva from "@/assets/noiva.jpg";
 import cilios from "@/assets/cilios.jpg.asset.json";
+import fioAFio from "@/assets/fio-a-fio.jpg";
 import { CTA, LinkCTA } from "@/components/site";
 
 export const Route = createFileRoute("/")({
@@ -120,7 +121,20 @@ function Index() {
               className="h-full w-full object-cover object-center"
             />
           </div>
-          {[2, 3, 4].map((i) => (
+          <figure className="relative aspect-square overflow-hidden">
+            <img
+              src={fioAFio}
+              alt="Olhar com extensão de cílios Fio a Fio, efeito natural"
+              width={1024}
+              height={1024}
+              loading="lazy"
+              className="h-full w-full object-cover object-center"
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/80 to-transparent px-3 pb-3 pt-8 font-display text-lg text-primary-foreground">
+              Extensão Fio a Fio
+            </figcaption>
+          </figure>
+          {[3, 4].map((i) => (
             <div key={i} className="flex aspect-square items-center justify-center border border-dashed border-border bg-muted text-xs uppercase tracking-[0.2em] text-muted-foreground">
               Foto autorizada
             </div>
