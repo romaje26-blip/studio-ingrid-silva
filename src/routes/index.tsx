@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import hero from "@/assets/hero.jpg";
 import studio from "@/assets/studio.jpg";
 import noiva from "@/assets/noiva.jpg";
+import cilios from "@/assets/cilios.jpg.asset.json";
 import { CTA, LinkCTA } from "@/components/site";
 
 export const Route = createFileRoute("/")({
@@ -52,20 +53,39 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-24">
-        <div className="text-center">
-          <p className="eyebrow">Mais procurados</p>
-          <h2 className="mt-4 text-4xl md:text-5xl">Serviços em destaque</h2>
+      <section className="py-24">
+        <div className="relative">
+          <img
+            src={cilios.url}
+            alt="Profissional do Studio Ingrid Silva em sessão de extensão de cílios, segurando pinças douradas"
+            width={1376}
+            height={768}
+            loading="lazy"
+            className="h-[48vh] max-h-[560px] min-h-[300px] w-full object-cover object-[center_28%] md:h-[56vh]"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/50 via-primary/10 to-transparent" />
+          <div className="absolute bottom-6 left-5 flex items-center gap-4 md:bottom-9 md:left-10">
+            <span className="gold-rule" />
+            <p className="font-display text-3xl leading-none text-primary-foreground md:text-4xl">
+              Studio <span className="italic">Ingrid Silva</span>
+            </p>
+          </div>
         </div>
-        <div className="mt-14 grid gap-px bg-border md:grid-cols-3">
-          {highlights.map((h) => (
-            <div key={h.name} className="bg-background p-10">
-              <h3 className="text-2xl">{h.name}</h3>
-              <p className="mt-3 text-sm text-muted-foreground">{h.text}</p>
-            </div>
-          ))}
+        <div className="mx-auto mt-16 max-w-6xl px-5">
+          <div className="text-center">
+            <p className="eyebrow">Mais procurados</p>
+            <h2 className="mt-4 text-4xl md:text-5xl">Serviços em destaque</h2>
+          </div>
+          <div className="mt-14 grid gap-px bg-border md:grid-cols-3">
+            {highlights.map((h) => (
+              <div key={h.name} className="bg-background p-10">
+                <h3 className="text-2xl">{h.name}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{h.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center"><LinkCTA to="/servicos">Ver todos os serviços</LinkCTA></div>
         </div>
-        <div className="mt-10 text-center"><LinkCTA to="/servicos">Ver todos os serviços</LinkCTA></div>
       </section>
 
       <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-2">
