@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CTA, PageHeader } from "@/components/site";
+import { CTA, PageHeader, TRINKS } from "@/components/site";
 import { brows, lashes, type Service } from "@/lib/services";
 
 export const Route = createFileRoute("/servicos")({
@@ -25,7 +25,7 @@ function List({ items, start }: { items: Service[]; start: number }) {
             <p className="mt-2 text-muted-foreground">{s.description}</p>
             <p className="mt-2 text-sm italic text-foreground">{s.effect}</p>
           </div>
-          <CTA variant="outline">Consultar disponibilidade</CTA>
+          <CTA href={TRINKS} variant="outline">Consultar disponibilidade</CTA>
         </article>
       ))}
     </div>
