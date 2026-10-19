@@ -6,6 +6,7 @@
 - [x] Botões de agendamento abrindo o WhatsApp em qualquer navegador (nova aba, com plano B quando a aba é bloqueada)
 - [x] Monograma "IS / INGRID SILVA — Lash Designer" no rodapé (arquivo IS_monograma.pdf convertido em imagem transparente)
 - [x] Símbolo "IS" em marrom escuro no cabeçalho, ao lado do nome escrito (nítido no computador e no celular)
+- [x] Botões "Consultar datas e Valores" (abertura da Início) e "Agendar" (cabeçalho) abrindo a página do studio na Trinks
 - [ ] Endereço, horários, preços e duração dos serviços — aguardando os dados da Ingrid
 - [ ] Política de Privacidade — precisa de revisão antes de publicar o site
 
