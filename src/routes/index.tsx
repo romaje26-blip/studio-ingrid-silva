@@ -72,7 +72,7 @@ function Index() {
             No Studio Ingrid Silva, cada atendimento é pensado para realçar a sua beleza, com cuidado nos detalhes e respeito ao seu estilo.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <CTA>Agende agora pelo WhatsApp</CTA>
+            <CTA>Consultar datas e Valores</CTA>
             <LinkCTA to="/servicos">Conheça nossos serviços</LinkCTA>
           </div>
         </div>
