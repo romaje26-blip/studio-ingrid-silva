@@ -31,7 +31,7 @@ export function externalClick(e: MouseEvent<HTMLAnchorElement>, embedded = windo
   } catch {
     // the embedding frame refused the new tab
   }
-  if (embedded) {
+  if (embedded && href.includes("wa.me")) {
     requestWhatsAppFallback({ href, phone: PHONE, message: WHATSAPP_MESSAGE });
     return;
   }
