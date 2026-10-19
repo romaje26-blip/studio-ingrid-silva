@@ -8,6 +8,7 @@ import { requestWhatsAppFallback } from "./whatsapp-fallback";
 export const PHONE = "(11) 94819-0515";
 export const WHATSAPP_MESSAGE = "Olá! Gostaria de agendar um horário no Studio Ingrid Silva.";
 export const WHATSAPP = "https://wa.me/5511948190515?text=" + encodeURIComponent(WHATSAPP_MESSAGE);
+export const TRINKS = "https://www.trinks.com/studioingridsilva";
 export const INSTAGRAM = "https://instagram.com/studioingridsilvaoficial";
 export const EMAIL = "Ingridsilva12189@yahoo.com";
 
@@ -30,7 +31,7 @@ export function externalClick(e: MouseEvent<HTMLAnchorElement>, embedded = windo
   } catch {
     // the embedding frame refused the new tab
   }
-  if (embedded) {
+  if (embedded && href.includes("wa.me")) {
     requestWhatsAppFallback({ href, phone: PHONE, message: WHATSAPP_MESSAGE });
     return;
   }

@@ -8,7 +8,7 @@ import volumeMegaLuxo from "@/assets/volume-mega-luxo.jpg";
 import volumeEgipcio from "@/assets/volume-egipcio.jpg";
 import ingridAtendimento from "@/assets/ingrid-atendimento.jpg.asset.json";
 import atendimento02 from "@/assets/atendimento-02.jpg.asset.json";
-import { CTA, LinkCTA } from "@/components/site";
+import { CTA, LinkCTA, TRINKS } from "@/components/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -72,7 +72,7 @@ function Index() {
             No Studio Ingrid Silva, cada atendimento é pensado para realçar a sua beleza, com cuidado nos detalhes e respeito ao seu estilo.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <CTA>Consultar datas e Valores</CTA>
+            <CTA href={TRINKS}>Consultar datas e Valores</CTA>
             <LinkCTA to="/servicos">Conheça nossos serviços</LinkCTA>
           </div>
         </div>
