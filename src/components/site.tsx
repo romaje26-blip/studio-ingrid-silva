@@ -86,7 +86,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={externalClick} className="bg-primary px-4 py-2 text-[0.65rem] uppercase tracking-[0.2em] text-primary-foreground hover:bg-accent">
+        <a href={TRINKS} target="_blank" rel="noopener noreferrer" onClick={externalClick} className="bg-primary px-4 py-2 text-[0.65rem] uppercase tracking-[0.2em] text-primary-foreground hover:bg-accent">
           Agendar
         </a>
       </div>
