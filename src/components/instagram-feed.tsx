@@ -1,9 +1,28 @@
 import { createElement, useEffect } from "react";
 import { ClientOnly } from "@tanstack/react-router";
 import { CTA, INSTAGRAM } from "./site";
+import cilios from "@/assets/cilios.jpg.asset.json";
+import fioAFio from "@/assets/fio-a-fio.jpg";
+import volumeMegaLuxo from "@/assets/volume-mega-luxo.jpg";
+import volumeEgipcio from "@/assets/volume-egipcio.jpg";
+import studio from "@/assets/studio.jpg";
+import noiva from "@/assets/noiva.jpg";
 
-/** Feed ID gerado no behold.so (público). Vazio = mostra só o link do perfil. */
+/**
+ * Feed ID gerado no behold.so (público). Vazio = mostra a grade de fotos
+ * manuais abaixo; quando o código for preenchido, o feed automático assume.
+ */
 export const BEHOLD_FEED_ID = "";
+
+/** Amostra do trabalho do studio, exibida enquanto o feed automático não está ligado. */
+const samplePhotos = [
+  { src: fioAFio, alt: "Olhar com extensão de cílios Fio a Fio, efeito natural" },
+  { src: volumeMegaLuxo, alt: "Olhar com extensão de cílios Volume Mega Luxo, efeito denso e marcante" },
+  { src: cilios.url, alt: "Sessão de extensão de cílios em andamento no Studio Ingrid Silva" },
+  { src: volumeEgipcio, alt: "Olhar de modelo morena com extensão de cílios Volume Egípcio, efeito híbrido texturizado" },
+  { src: studio, alt: "Detalhes do atendimento no Studio Ingrid Silva" },
+  { src: noiva, alt: "Noiva com cílios e maquiagem delicados" },
+];
 
 function BeholdWidget({ feedId }: { feedId: string }) {
   useEffect(() => {
@@ -30,7 +49,25 @@ export function InstagramFeed() {
             <BeholdWidget feedId={BEHOLD_FEED_ID} />
           </ClientOnly>
         ) : (
-          <p className="text-center text-sm text-muted-foreground">Acompanhe nossos trabalhos mais recentes direto no perfil do studio.</p>
+          <div className="grid grid-cols-3 gap-px bg-border md:grid-cols-6">
+            {samplePhotos.map((p) => (
+              <a
+                key={p.src}
+                href={INSTAGRAM}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir o perfil do Studio no Instagram"
+                className="block aspect-square overflow-hidden"
+              >
+                <img
+                  src={p.src}
+                  alt={p.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                />
+              </a>
+            ))}
+          </div>
         )}
       </div>
       <div className="mt-10 text-center"><CTA href={INSTAGRAM} variant="outline">Veja mais no Instagram</CTA></div>
