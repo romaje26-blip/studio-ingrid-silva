@@ -8,7 +8,6 @@
 - [x] Símbolo "IS" em marrom escuro no cabeçalho, ao lado do nome escrito (nítido no computador e no celular)
 - [x] Botões "Consultar datas e Valores" (abertura da Início) e "Agendar" (cabeçalho) abrindo a página do studio na Trinks
 - [x] Todos os botões "Consultar disponibilidade" da página Serviços abrindo a Trinks em nova aba
-- [x] Seção "Siga no Instagram" (Início, após Transformações): grade de 6 fotos do studio com link para o perfil (sem depender do Behold); se depois chegarem o Feed ID do Behold, o feed automático assume no lugar da grade
 - [ ] Endereço, horários, preços e duração dos serviços — aguardando os dados da Ingrid
 - [ ] Política de Privacidade — precisa de revisão antes de publicar o site
 
