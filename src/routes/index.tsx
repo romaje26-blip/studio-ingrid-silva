@@ -9,6 +9,7 @@ import volumeEgipcio from "@/assets/volume-egipcio.jpg";
 import ingridAtendimento from "@/assets/ingrid-atendimento.jpg.asset.json";
 import atendimento02 from "@/assets/atendimento-02.jpg.asset.json";
 import { CTA, LinkCTA, TRINKS } from "@/components/site";
+import { InstagramFeed } from "@/components/instagram-feed";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -196,8 +197,9 @@ function Index() {
             </figcaption>
           </figure>
         </div>
-        <div className="mt-10 text-center"><CTA href="https://instagram.com/studioingridsilvaoficial" variant="outline">Veja mais no Instagram</CTA></div>
       </section>
+
+      <InstagramFeed />
 
       <section className="bg-muted py-24">
         <div className="mx-auto max-w-3xl px-5 text-center">
