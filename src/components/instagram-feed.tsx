@@ -6,7 +6,7 @@ import insta02 from "@/assets/insta-02.jpg.asset.json";
 import insta03 from "@/assets/insta-03.jpg.asset.json";
 
 const posts = [
-  { src: insta01.url, alt: "Ingrid Silva, Artista Destaque no Symposium Porto Lash", pos: "object-[center_40%]" },
+  { src: insta01.url, alt: "Ingrid Silva, Artista Destaque no Symposium Porto Lash", pos: "object-top" },
   { src: insta02.url, alt: "Ingrid Silva em atendimento de sobrancelha no studio", pos: "object-center" },
   { src: insta03.url, alt: "Ingrid Silva com o Certificado de Reconhecimento CNPB", pos: "object-top" },
 ];
